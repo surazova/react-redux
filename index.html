@@ -4,9 +4,9 @@
     <meta charset ="UTF-8">
     <meta name = "viewport" content="width=device-width, initial scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> <!-- (4) added Babel, so that the browser can understand our code-->
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> <!--Core React Library-->
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> <!-- React DOM-->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> 
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
     <title>Document</title>
 </head>
 
@@ -14,15 +14,32 @@
     <div id="app"></div>
     <script type="text/babel"> 
         class App extends React.Component {
-            state = {  //the state of the component when it first loads 
+            state = {  
                 name: 'Crystal',
                 age: 35
             }
+            
+            //Adding in event listeners 
+            handleClick(e){ //define function, takes "e" event by default
+                //console.log(e.target);
+                console.log(this.state.age);
+            }
+            
+            handleMouseOver(e){
+                console.log(e.target, e.pageX); //mouse position on the X-coordinate
+            }
+            
+            handleCopy(e){
+                console.log('Try being original for once'); //When you try to copy the sentence, you get this loggen into the console.
+            }
             render() { 
-            return( //Using JSX
+            return( 
               <div className="app-content">  
               <h1>Hello There!</h1>
               <p>My name is: { this.state.name} and I am {this.state.age}</p> 
+              <button onClick={this.handleClick}>Click Me</button>
+              <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+              <p onCopy={this.handleCopy}>What we think, we become</p>
               </div>
               )
         }
