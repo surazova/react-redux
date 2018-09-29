@@ -12,13 +12,17 @@
 
 <body>
     <div id="app"></div>
-    <script type="text/babel"> //Added script type of babel
+    <script type="text/babel"> 
         class App extends React.Component {
-            render() { //Renders the template
+            state = {  //the state of the component when it first loads 
+                name: 'Crystal',
+                age: 35
+            }
+            render() { 
             return( //Using JSX
               <div className="app-content">  
               <h1>Hello There!</h1>
-              <p>{ Math.random() * 10}</p> 
+              <p>My name is: { this.state.name} and I am {this.state.age}</p> 
               </div>
               )
         }
