@@ -20,17 +20,20 @@
             }
             
             //Adding in event listeners 
-            handleClick(e){ //define function, takes "e" event by default
-                //console.log(e.target);
-                console.log(this.state.age);
+            handleClick = (e) => { //Adding arrow function so that this. can work 
+                this.setState({
+                   name: 'Yoshi',  //changes the name and age property
+                   age: 25
+                });
+                console.log(this.state); //logs the state (name and age to the console)
             }
             
-            handleMouseOver(e){
-                console.log(e.target, e.pageX); //mouse position on the X-coordinate
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX); 
             }
             
-            handleCopy(e){
-                console.log('Try being original for once'); //When you try to copy the sentence, you get this loggen into the console.
+            handleCopy = (e) => {
+                console.log('Try being original for once'); 
             }
             render() { 
             return( 
