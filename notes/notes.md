@@ -23,3 +23,13 @@ You can now view myapp in the browser. </br>
 
   Local:            http://localhost:8080/ </br>
   On Your Network:  http://172.17.0.74:8080/ </br>
+  
+
+</br>
+To create react app:  </br>
+install react app space </br>
+=>nvm i v8 (install latest version of node) </br>
+=>npm install -g create-react-app </br>
+=>create-react-app my-app </br>
+=>cd my-app </br>
+=>npm start </br>
