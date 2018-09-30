@@ -15,34 +15,31 @@
     <script type="text/babel"> 
         class App extends React.Component {
             state = {  
-                name: 'Crystal',
-                age: 35
+                name: 'Ryu',
+                age: 30
             }
             
-            //Adding in event listeners 
-            handleClick = (e) => { //Adding arrow function so that this. can work 
+            //adding handle change function 
+            handleChange = (e) => {
                 this.setState({
-                   name: 'Yoshi',  //changes the name and age property
-                   age: 25
+                    name: e.target.value //grabbing the event of the input field when you click "submit"
                 });
-                console.log(this.state); //logs the state (name and age to the console)
             }
             
-            handleMouseOver = (e) => {
-                console.log(e.target, e.pageX); 
-            }
-            
-            handleCopy = (e) => {
-                console.log('Try being original for once'); 
+            //adding handleSubmit so the page doesn't just refresh when you click submit 
+            handleSubmit = (e) => {
+                e.preventDefault(); //preventing the page from refreshing 
+                console.log('form submitted', this.state.name)
+                
             }
             render() { 
             return( 
               <div className="app-content">  
-              <h1>Hello There!</h1>
-              <p>My name is: { this.state.name} and I am {this.state.age}</p> 
-              <button onClick={this.handleClick}>Click Me</button>
-              <button onMouseOver={this.handleMouseOver}>Hover Me</button>
-              <p onCopy={this.handleCopy}>What we think, we become</p>
+              <h1>My name is { this.state.name}</h1> 
+              <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange}/>
+              <button>Submit</button>
+              </form>
               </div>
               )
         }
