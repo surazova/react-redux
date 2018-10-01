@@ -2,27 +2,20 @@ import React, { Component } from 'react';
 
 class Ninjas extends Component{
     render(){
-        //Without destructuring method:
-        //console.log(this.props); //takes the props we put in from the parent, app.js 
-        //        return(
-        //    <div className="ninja">
-        //    <div>Name: {this.props.name}</div> 
-        //    <div>Age: {this.props.age}</div>
-        //    <div>Belt: {this.props.belt}</div>
-        //    </div>
-        //)
-        //    }
-        //  }
-        //export default Ninjas
-        
-        //destructuring method: 
-        const {name, age, belt} = this.props;
+        const { ninjas } = this.props;  //Also set a unique key id for key={ninja.id}
+        const ninjaList = ninjas.map(ninja => { //cycle through ninjas array, mapping it to a new array, and returning and template for that ninja
+            return(
+            <div className="ninja" key={ninja.id}> 
+            <div>Name: {ninja.name}</div> 
+            <div>Age: {ninja.age}</div>
+            <div>Belt: {ninja.belt}</div>
+            </div>             
+                )
+        })
         return(
-            <div className="ninja">
-            <div>Name: {name}</div> 
-            <div>Age: {age}</div>
-            <div>Belt: {belt}</div>
-            </div>
+        <div className="ninja-list">
+        { ninjaList }
+        </div>
         )
     }
 }
