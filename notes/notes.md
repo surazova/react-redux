@@ -1,3 +1,2 @@
-Nesting Components <br> 
-Every React App has a root component (App.js) </br>
-Other components get nested within the root component </br> 
+Props </br>
+A way for us to pass data from the parent component (App.js) to the child component (Ninjas.js) </br>
