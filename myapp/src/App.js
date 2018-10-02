@@ -15,17 +15,32 @@ class App extends Component {
     addNinja = (ninja) => {
       //console.log(ninja);
       ninja.id=Math.random(); //gives random id that is unique 
-      let ninjas = [...this.state.ninjas, ninja] //spread operator, used to copy the original array, then adding the element to the array so that you are not changing the set state/altering the original. 
+      let ninjas = [...this.state.ninjas, ninja] //spread operator 
       this.setState({
         ninjas: ninjas
       })
+    } 
+    
+    //Function for deleting 
+    deleteNinja = (id) => {
+      //console.log(id)
+      let ninjas= this.state.ninjas.filter(ninja => {
+        return ninja.id !== id   //nondestructive, doesnt alter the original state filters out the ninja and creates a new array
+      });
+    
+      this.setState ({
+        ninjas: ninjas
+      })      
+    
     }
     render() {
+      
+      //set properties that you need below
     return (
       <div className="App">
         <h1> My first React App </h1>
         <p> Welcome! </p>
-        <Ninjas ninjas={this.state.ninjas}/> 
+        <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/> 
         <AddNinja addNinja={this.addNinja}/>
       </div>
     );
