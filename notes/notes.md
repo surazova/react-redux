@@ -12,3 +12,5 @@ UI Components </br>
 -Receive data from props </br>
 -Only concerned with UI </br>
 -Use functions to create </br>
+-Use functions to create </br>
+-Data comes from the container component </br>
