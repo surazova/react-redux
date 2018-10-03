@@ -1,16 +1,4 @@
-Container vs UI Components </br>
-</br>
-Container Components </br>
--Contain state </br>
--Contain lifecycle hooks </br>
--Not concerned with UI </br>
--Use classes to create </br>
+The Virtual DOM </br>
+https://www.codecademy.com/articles/react-virtual-dom </br>
 
-</br>
-UI Components </br>
--Don't contain state </br>
--Receive data from props </br>
--Only concerned with UI </br>
--Use functions to create </br>
--Use functions to create </br>
--Data comes from the container component </br>
+Like the actual DOM, the Virtual DOM is a node tree that lists elements and their attributes and content as objects and properties. React's render() method creates a node tree from React components and updates this tree in response to mutations in the data model, caused by actions
