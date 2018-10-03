@@ -11,21 +11,18 @@ class App extends Component {
         ]
     }
     
-    //Creating a new function and prop, so the funciton can be called from AddNinja.js 
     addNinja = (ninja) => {
-      //console.log(ninja);
-      ninja.id=Math.random(); //gives random id that is unique 
-      let ninjas = [...this.state.ninjas, ninja] //spread operator 
+      ninja.id=Math.random(); 
+      let ninjas = [...this.state.ninjas, ninja] 
       this.setState({
         ninjas: ninjas
       })
     } 
     
-    //Function for deleting 
+    //Deleting 
     deleteNinja = (id) => {
-      //console.log(id)
       let ninjas= this.state.ninjas.filter(ninja => {
-        return ninja.id !== id   //nondestructive, doesnt alter the original state filters out the ninja and creates a new array
+        return ninja.id !== id  
       });
     
       this.setState ({
@@ -33,9 +30,16 @@ class App extends Component {
       })      
     
     }
+    
+    componentDidMount(){
+      console.log('component mounted')  //the component is only mounted once 
+    }
+    
+    componentDidUpdate(){ //fires when there is a change of state or change or props 
+      console.log('component updated');
+      //console.log(prevProps, prevState);
+    }
     render() {
-      
-      //set properties that you need below
     return (
       <div className="App">
         <h1> My first React App </h1>
