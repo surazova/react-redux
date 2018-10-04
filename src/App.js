@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Todos from './Todos'
 
+
+//create a prop to pass the array into the component Todos.app
 class App extends Component {
+  state = {
+    todos: [
+      {id: 1, content: 'buy some milk'},
+      {id: 2, content: 'make a todoapp'}
+      ]
+  }
+  //Adding function to delete todos 
+  deleteTodo = (id) => {
+    //console.log(id);  //shows the id of the todo
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id //if todo is not equal to id, return true, keeps it in the array
+      
+    });
+    this.setState({
+      todos: todos
+    })
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="todo-app container">
+      <h1 className="center blue-text"> Todo's</h1>
+      <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+
       </div>
     );
   }
