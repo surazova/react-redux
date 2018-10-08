@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Contact = () => {
+    // setTimeout((props) => {
+    //     this.props.history.push('/about') //added this. for props 
+    // }, 2000);
     return (
         <div className="container">
             <h4 className="center">Contact</h4>

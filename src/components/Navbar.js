@@ -1,7 +1,11 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom' //Changes a href to link to. Link tags prevent the default action of sending a request to the server, makes the app smoother and quicker
+import { Link, NavLink, withRouter } from 'react-router-dom' //withRouter imports a higher-order component, supercharges the parameter
                                                 //NavLink gives you an active tag when that link is clicked 
 const Navbar = () => {
+    // console.log(props)
+    setTimeout((props) => {   //redirecting to a page using the history. 
+      props.history.push('/about')  
+    }, 2000)
     return (
         <nav className="nav-wrapper teal accent-3">
             <div className="container"> 
@@ -18,4 +22,4 @@ const Navbar = () => {
         )
 }
 
-export default Navbar;
+export default withRouter(Navbar)
