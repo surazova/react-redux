@@ -3,9 +3,9 @@ import { Link, NavLink, withRouter } from 'react-router-dom' //withRouter import
                                                 //NavLink gives you an active tag when that link is clicked 
 const Navbar = () => {
     // console.log(props)
-    setTimeout((props) => {   //redirecting to a page using the history. 
-      props.history.push('/about')  
-    }, 2000)
+    // setTimeout((props) => {   //redirecting to a page using the history. 
+    //   props.history.push('/about')  
+    // }, 2000)
     return (
         <nav className="nav-wrapper teal accent-3">
             <div className="container"> 
