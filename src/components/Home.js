@@ -1,39 +1,40 @@
-//Installed axios 
-
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom' //Importing to add a dynamic link below 
 
-class Home extends Component { //Changed into a class-based component
-    state = { 
-        posts: [ ]
+class Home extends Component {
+    state = {
+        posts: []
     }
     componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/posts') //axios is getting data from posts 
-        .then(res => {
-            console.log(res);
-            this.setState({
-                posts: res.data.slice(0, 10)
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    posts: res.data.slice(0, 10)
+                })
             })
-        })
     }
     render() {
         const { posts } = this.state;
         const postList = posts.length ? (
-            posts.map(post =>{
+            posts.map(post => {
                 return (
                     <div className="post card" key={post.id}>
                         <div className="card-content">
+                            <Link to={'/' + post.id}> 
                             <span className="card-title">{post.title}</span>
+                            </Link>
                                 <p>{post.body}</p>
                         </div>
                     </div>
-                    )
+                )
             })
-            ) : (
+        ) : (
             <div className = "center">No Posts Yet </div>
-            )
+        )
         return (
-        <div className="container">
+            <div className="container">
             <h4 className="center">Home</h4>
             {postList}
         </div>
